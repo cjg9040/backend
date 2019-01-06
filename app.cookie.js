@@ -1,10 +1,10 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var app = express();
-app.use(cookieParser('234324324324%!'));//이상한숫자가 key값임
+app.use(cookieParser('234324324324%!'));//이상한숫자가 key값임 for cookies security
 var products = {
   1:{title:'The history of web 1'},
-  2:{title:'The history of web 2'}
+  2:{title:'The history of web 2'} 
 };
 app.get('/products', function(req, res) {
     var output = '';
