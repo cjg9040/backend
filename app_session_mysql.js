@@ -6,8 +6,6 @@ var MySQLStore = require('express-mysql-session')(session);
 //var sha256 = require('sha256');
 var bkfd2Password = require("pbkdf2-password");
 var hasher = bkfd2Password();
-//var assert = require("assert");
-
 app.use(bodyParser.urlencoded({ extended: false }));
 //var salt ='@!#@!#@!#@!#!1232#@!#!#1321';//md5
 //var md5 = require('md5');
@@ -25,16 +23,6 @@ app.use(session({
         database: 'o2'
     })
 }));
-
-// app.get('/count', function(req, res) {
-//     if (req.session.count) {
-//         req.session.count++;
-//     } else {
-//         req.session.count = 1;
-//     }
-//     res.send('result : ' + req.session.count);
-//     //res.send('hi session!');
-// })
 
 app.post('/auth/register', function(req, res) {
     //req.body.password = sha256(req.body.password+salt);
@@ -120,15 +108,7 @@ app.post('/auth/login', function(req, res) {
         		}
         	});
         }
-        // if (uname == user.username && pwd === user.password) {
-        //     req.session.displayName = user.displayName;
-        //     return req.session.save(function(){
-        //     	res.redirect('/welcome');	
-        //     })
-        // }
     }
-   	//res.send('누구세요? <a href ="/auth/login">login page</a>');
-    //res.send(uname);
 });
 app.get('/auth/login', function(req, res) {
     var output = `
@@ -149,8 +129,6 @@ app.get('/auth/login', function(req, res) {
 		</p>
 	</form>
 	`;
-
-
     res.send(output);
 });
 app.listen(3001, function() {

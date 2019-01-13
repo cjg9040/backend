@@ -73,8 +73,6 @@ app.get('/auth/login',function(req,res){
 		</p>
 	</form>
 	`;
-
-
 	res.send(output);
 })
 app.listen(3000, function() {
